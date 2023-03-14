@@ -1,0 +1,16 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.carousal-image {
+  width: 100%;
+  height: 188px;
+}
+@media screen and (min-width: 768px) {
+  .carousal-image {
+    width: 100%;
+    max-width: 1110px;
+    height: 320px;
+  }
+}

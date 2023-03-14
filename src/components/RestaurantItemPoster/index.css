@@ -1,0 +1,101 @@
+.poster-container {
+  height: 188px;
+  width: 100%;
+  display: flex;
+  background-color: #333333;
+  overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .poster-container {
+    margin-top: 12px;
+    height: 340px;
+    background-image: url('https://res.cloudinary.com/dkgkhdfnt/image/upload/v1678469088/Tasty%20Kitchens/Frame_279bg_yfmfi5.png');
+    width: 100%;
+    align-items: center;
+  }
+}
+.content-container {
+  display: flex;
+  margin: 0px;
+  width: 100%;
+}
+.restaurant-image {
+  width: 221px;
+  height: 221px;
+  margin-left: -60px;
+  margin-top: -50px;
+  border-radius: 50%;
+}
+@media screen and (min-width: 768px) {
+  .content-container {
+    flex-grow: 1;
+    max-width: 800px;
+    align-items: center;
+  }
+  .restaurant-image {
+    width: 440px;
+    height: 280px;
+    margin-left: 200px;
+    border-radius: 0px;
+  }
+}
+.restaurant-details-container {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  flex-grow: 1;
+}
+.restaurant-name {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 0px;
+}
+
+.restaurant-details {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  .restaurant-name {
+    font-size: 36px;
+  }
+  .restaurant-details {
+    font-size: 16px;
+  }
+}
+.location {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.mini-details {
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-top: 0px;
+}
+.rating-cost-container {
+  display: flex;
+  align-items: center;
+  margin-top: 0px;
+}
+.details-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+}
+.flex-container {
+  display: flex;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

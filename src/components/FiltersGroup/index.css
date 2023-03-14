@@ -1,0 +1,54 @@
+.filters-group-container {
+  width: 90%;
+  max-width: 1110px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.heading {
+  font-family: 'DM Sans';
+  font-size: 24px;
+  font-weight: 700;
+  color: #183b56;
+}
+.filter-description-container {
+  display: flex;
+  flex-direction: column;
+}
+.description {
+  font-family: 'DM Sans';
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+.filter-options-container {
+  display: flex;
+  align-items: center;
+}
+.sort-by {
+  color: #475569;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'DM Sans';
+  margin-left: 8px;
+}
+.sort-by-select {
+  color: #475569;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'DM Sans';
+  border: none;
+}
+@media screen and (min-width: 768px) {
+  .filter-description-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .heading {
+    font-size: 32px;
+  }
+  .description {
+    font-size: 16px;
+  }
+}

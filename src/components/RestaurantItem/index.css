@@ -1,0 +1,69 @@
+.restaurant-item {
+  display: flex;
+  width: 90%;
+  margin-bottom: 15px;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .restaurant-item {
+    width: 350px;
+  }
+}
+.restaurant-image {
+  width: 170px;
+  height: 120px;
+  margin-right: 10px;
+  border-radius: 8px;
+}
+.restaurant-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 100px;
+  flex-shrink: -1;
+}
+.name {
+  font-family: 'DM Sans';
+  font-size: 16px;
+  color: #334155;
+  font-weight: 700;
+}
+
+.cuisine {
+  font-family: 'DM Sans';
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 400;
+  margin-top: 0px;
+}
+.ratings-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0px;
+}
+.rating {
+  color: #1e293b;
+  font-family: 'DM Sans';
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 5px;
+}
+.reviews {
+  font-family: 'DM Sans';
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 400;
+}
+/* @media screen and (min-width: 768px) {
+  .name {
+    font-size: 18px;
+  }
+  .cuisine {
+    font-size: 14px;
+  }
+} */
+.restaurant-link {
+  text-decoration: none;
+  cursor: pointer;
+}

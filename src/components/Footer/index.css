@@ -1,0 +1,62 @@
+.footer-container {
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.responsive-container {
+  margin-top: 30px;
+  width: 80%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+.chef-hat {
+  height: 32px;
+  width: 40px;
+}
+.logo-text {
+  height: 24px;
+  width: 143px;
+}
+.footer-description {
+  font-family: 'DM Sans';
+  font-size: 14px;
+  color: white;
+  font-weight: 400;
+}
+.social-media-icons-container {
+  padding-left: 0px;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+.icon-link {
+  color: white;
+  margin-right: 15px;
+  height: 24px;
+  width: 24px;
+}
+@media screen and (min-width: 768px) {
+  .footer-description {
+    font-size: 24px;
+  }
+  .icon-link {
+    height: 48px;
+    width: 48px;
+  }
+  .chef-hat {
+    width: 53px;
+    height: 43px;
+  }
+  .logo-text {
+    width: 230px;
+    height: 48px;
+  }
+}
