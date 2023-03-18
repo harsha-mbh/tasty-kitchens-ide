@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Header from '../Header'
 import RestaurantItemPoster from '../RestaurantItemPoster'
+import MenuItem from '../MenuItem'
 import './index.css'
 
 const apiStatusConstants = {
@@ -50,6 +51,7 @@ class RestaurantItemDetails extends Component {
           id: eachItem.id,
           foodType: eachItem.food_type,
           imageUrl: eachItem.image_url,
+          rating: eachItem.rating,
         })),
       }
       this.setState({
@@ -68,10 +70,33 @@ class RestaurantItemDetails extends Component {
 
   renderRestaurantDetails = () => {
     const {apiStatus} = this.state
-    console.log(apiStatus)
     switch (apiStatus) {
       case 'SUCCESS':
         return this.renderPosterSuccessView()
+      case 'LOADING':
+        return this.renderLoadingView
+      default:
+        return null
+    }
+  }
+
+  renderFoodItemsSuccessView = () => {
+    const {restaurantData} = this.state
+    const {foodItems} = restaurantData
+    return (
+      <ul className="menu-items-container">
+        {foodItems.map(eachItem => (
+          <MenuItem key={eachItem.id} menuDetails={eachItem} />
+        ))}
+      </ul>
+    )
+  }
+
+  renderFoodItems = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case 'SUCCESS':
+        return this.renderFoodItemsSuccessView()
       case 'LOADING':
         return this.renderLoadingView
       default:
@@ -84,6 +109,7 @@ class RestaurantItemDetails extends Component {
       <>
         <Header />
         {this.renderRestaurantDetails()}
+        {this.renderFoodItems()}
       </>
     )
   }

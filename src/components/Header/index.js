@@ -12,6 +12,12 @@ class Header extends Component {
 
   onCloseMenu = () => this.setState({showMenu: false})
 
+  onClickLogout = () => {
+    const {history} = this.props
+    Cookies.remove('jwt_token')
+    history.replace('/login')
+  }
+
   render() {
     const {showMenu} = this.state
     return (
@@ -38,17 +44,17 @@ class Header extends Component {
         {showMenu && (
           <div className="nav-mobile-menu">
             <ul className="nav-menu-container">
-              <li className="menu-item">
+              <li className="nav-menu-item">
                 <Link to="/" className="menu-link">
                   Home
                 </Link>
               </li>
-              <li className="menu-item">
+              <li className="nav-menu-item">
                 <Link to="/cart" className="menu-link">
                   Cart
                 </Link>
               </li>
-              <li className="menu-item">
+              <li className="nav-menu-item">
                 <button
                   className="logout-btn"
                   type="button"
@@ -80,12 +86,12 @@ class Header extends Component {
           </Link>
 
           <ul className="nav-menu-container">
-            <li className="menu-item">
+            <li className="nav-menu-item">
               <Link to="/" className="menu-link">
                 Home
               </Link>
             </li>
-            <li className="menu-item">
+            <li className="nav-menu-item">
               <Link to="/cart" className="menu-link">
                 Cart
               </Link>

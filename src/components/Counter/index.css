@@ -1,0 +1,20 @@
+.counter-container {
+  display: flex;
+  align-items: center;
+}
+.count-btn {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: 1px solid #000000;
+  margin-right: 8px;
+  font-size: 16px;
+  color: #475569;
+}
+.cart-quantity {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #475569;
+  font-weight: 500;
+  margin-right: 8px;
+}
