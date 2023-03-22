@@ -4,20 +4,17 @@ import './index.css'
 
 class Counter extends Component {
   onDecrement = () => {
-    const {onDecrementQuantity, itemDetails} = this.props
-    const {id} = itemDetails
-    onDecrementQuantity(id)
+    const {onDecrementQuantity} = this.props
+    onDecrementQuantity()
   }
 
   onIncrement = () => {
-    const {onIncrementQuantity, itemDetails} = this.props
-    const {id} = itemDetails
-    onIncrementQuantity(id)
+    const {onIncrementQuantity} = this.props
+    onIncrementQuantity()
   }
 
   render() {
-    const {itemDetails} = this.props
-    const {quantity} = itemDetails[0]
+    const {quantity} = this.props
     return (
       <div className="counter-container">
         <button type="button" onClick={this.onDecrement} className="count-btn">

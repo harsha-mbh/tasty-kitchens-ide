@@ -1,0 +1,27 @@
+.cart-summary-container {
+  display: flex;
+  justify-content: space-between;
+}
+.summary-heading {
+  color: #3e4c59;
+  font-family: 'Roboto';
+  font-size: 24px;
+  font-weight: 500;
+}
+.order-value-btn-container {
+  display: flex;
+  flex-direction: column;
+}
+.order-value {
+  color: #3e4c59;
+  font-family: 'Roboto';
+  font-size: 24px;
+  font-weight: 500;
+}
+.place-order-btn {
+  border: none;
+  border-radius: 8px;
+  background-color: #f7931e;
+  color: white;
+  padding: 8px 16px;
+}

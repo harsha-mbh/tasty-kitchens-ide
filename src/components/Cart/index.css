@@ -31,6 +31,7 @@
   border-radius: 8px;
   color: white;
   border: none;
+  cursor: pointer;
 }
 @media screen and (min-width: 768px) {
   .empty-view-container {
@@ -46,4 +47,34 @@
   .empty-description {
     font-size: 16px;
   }
+}
+.cart-list-container {
+  padding-left: 0px;
+  margin: 0 auto;
+  width: 100%;
+}
+.cart-container {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width: 1110px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.remove-all-btn {
+  background-color: transparent;
+  font-size: 14px;
+  font-family: 'DM Sans';
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+.cart-content-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.separator {
+  width: 100%;
+  height: 1px;
+  color: gray;
 }
