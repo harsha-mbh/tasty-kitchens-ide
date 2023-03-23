@@ -1,6 +1,7 @@
 .cart-summary-container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 .summary-heading {
   color: #3e4c59;
@@ -24,4 +25,13 @@
   background-color: #f7931e;
   color: white;
   padding: 8px 16px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .order-value {
+    font-size: 16px;
+  }
+  .summary-heading {
+    font-size: 16px;
+  }
 }

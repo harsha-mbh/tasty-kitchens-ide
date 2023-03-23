@@ -13,15 +13,19 @@ class App extends Component {
   state = {cartList: []}
 
   componentDidMount() {
-    const cartList = JSON.parse(localStorage.getItem('cartList'))
-    if (cartList) {
-      this.setState({cartList})
+    const stringifiedCartList = localStorage.getItem('cartList')
+    console.log(stringifiedCartList)
+    try {
+      const parsedCartList = JSON.parse(stringifiedCartList)
+      console.log(parsedCartList)
+      if (parsedCartList !== null) {
+        this.setState({cartList: parsedCartList})
+      } else {
+        this.setState({cartList: []})
+      }
+    } catch (error) {
+      console.error('Error parsing cartList from localStorage:', error)
     }
-  }
-
-  componentDidUpdate() {
-    const {cartList} = this.state
-    localStorage.setItem('cartList', JSON.stringify(cartList))
   }
 
   removeCartItem = id => {
@@ -29,7 +33,9 @@ class App extends Component {
     const filteredCartList = cartList.filter(
       eachCartItem => id !== eachCartItem.id,
     )
-    this.setState({cartList: filteredCartList})
+    this.setState({cartList: filteredCartList}, () => {
+      localStorage.setItem('cartList', JSON.stringify(filteredCartList))
+    })
   }
 
   incrementCartItemQuantity = id => {
@@ -44,7 +50,9 @@ class App extends Component {
       }
       return updatedItem
     })
-    this.setState({cartList: updatedCartList})
+    this.setState({cartList: updatedCartList}, () => {
+      localStorage.setItem('cartList', JSON.stringify(updatedCartList))
+    })
   }
 
   decrementCartItemQuantity = id => {
@@ -62,11 +70,16 @@ class App extends Component {
     const filteredCartList = updatedCartList.filter(
       eachCartItem => eachCartItem.quantity > 0,
     )
-    this.setState({cartList: filteredCartList})
+    this.setState({cartList: filteredCartList}, () => {
+      localStorage.setItem('cartList', JSON.stringify(filteredCartList))
+    })
   }
 
   removeAllCartItems = () => {
-    this.setState({cartList: []})
+    this.setState({cartList: []}, () => {
+      const {cartList} = this.state
+      localStorage.setItem('cartList', JSON.stringify(cartList))
+    })
   }
 
   addCartItem = product => {
@@ -77,14 +90,13 @@ class App extends Component {
     if (existingProduct.length === 0) {
       const updatedCartList = [...cartList, product]
       this.setState({cartList: updatedCartList}, () => {
-        localStorage.setItem('cartList', updatedCartList)
+        localStorage.setItem('cartList', JSON.stringify(updatedCartList))
       })
     }
   }
 
   render() {
     const {cartList} = this.state
-    console.log(cartList)
     return (
       <CartContext.Provider
         value={{
