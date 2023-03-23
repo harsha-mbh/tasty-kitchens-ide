@@ -1,11 +1,10 @@
-import {Redirect} from 'react-router-dom'
 import Header from '../Header'
 import CartItem from '../CartItem'
 import CartSummary from '../CartSummary'
 import CartContext from '../../context/CartContext'
 import './index.css'
 
-const Cart = () => (
+const Cart = props => (
   <CartContext.Consumer>
     {value => {
       const {cartList, removeAllCartItems} = value
@@ -13,7 +12,10 @@ const Cart = () => (
       const onClickRemoveAllBtn = () => {
         removeAllCartItems()
       }
-      const onClickOrderBtn = () => <Redirect to="/" />
+      const onClickOrderBtn = () => {
+        const {history} = props
+        history.replace('/')
+      }
 
       const renderEmptyCartView = () => (
         <div className="empty-view-container">
@@ -32,30 +34,30 @@ const Cart = () => (
         </div>
       )
 
+      const renderCartView = () => (
+        <div className="cart-content-container-desktop">
+          <button
+            className="remove-all-btn"
+            type="button"
+            onClick={onClickRemoveAllBtn}
+          >
+            Remove All
+          </button>
+          <ul className="cart-list-container">
+            {cartList.map(eachItem => (
+              <CartItem key={eachItem.id} cartItemDetails={eachItem} />
+            ))}
+          </ul>
+          <hr className="separator" />
+          {cartList.length !== 0 && <CartSummary cartList={cartList} />}
+        </div>
+      )
+
       return (
         <>
           <Header />
           <div className="cart-container">
-            {showEmptyView ? (
-              renderEmptyCartView()
-            ) : (
-              <div className="cart-content-container">
-                <button
-                  className="remove-all-btn"
-                  type="button"
-                  onClick={onClickRemoveAllBtn}
-                >
-                  Remove All
-                </button>
-                <ul className="cart-list-container">
-                  {cartList.map(eachItem => (
-                    <CartItem key={eachItem.id} cartItemDetails={eachItem} />
-                  ))}
-                </ul>
-                <hr className="separator" />
-                {cartList.length !== 0 && <CartSummary cartList={cartList} />}
-              </div>
-            )}
+            {showEmptyView ? renderEmptyCartView() : renderCartView()}
           </div>
         </>
       )

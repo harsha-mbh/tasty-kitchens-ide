@@ -12,6 +12,18 @@ import './App.css'
 class App extends Component {
   state = {cartList: []}
 
+  componentDidMount() {
+    const cartList = JSON.parse(localStorage.getItem('cartList'))
+    if (cartList) {
+      this.setState({cartList})
+    }
+  }
+
+  componentDidUpdate() {
+    const {cartList} = this.state
+    localStorage.setItem('cartList', JSON.stringify(cartList))
+  }
+
   removeCartItem = id => {
     const {cartList} = this.state
     const filteredCartList = cartList.filter(
@@ -63,7 +75,10 @@ class App extends Component {
       eachProduct => product.id === eachProduct.id,
     )
     if (existingProduct.length === 0) {
-      this.setState(prevState => ({cartList: [...prevState.cartList, product]}))
+      const updatedCartList = [...cartList, product]
+      this.setState({cartList: updatedCartList}, () => {
+        localStorage.setItem('cartList', updatedCartList)
+      })
     }
   }
 

@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 import Header from '../Header'
+import Footer from '../Footer'
 import RestaurantItem from '../RestaurantItem'
 import FiltersGroup from '../FiltersGroup'
 import Carousal from '../Carousal'
@@ -188,6 +189,7 @@ class Home extends Component {
         {this.renderCarousal()}
         {this.renderFilterGroup()}
         {this.renderPopularRestaurants()}
+        <Footer />
       </>
     )
   }

@@ -9,6 +9,17 @@
   margin-bottom: 15px;
   width: 100%;
 }
+.cart-item-mobile {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .cart-item-mobile {
+    display: none;
+  }
+}
 .image-name-container {
   display: flex;
   align-items: center;
@@ -55,4 +66,23 @@
 .delete-button {
   background-color: transparent;
   border: none;
+}
+@media screen and (max-width: 768px) {
+  .cart-item-desktop {
+    display: none;
+  }
+  .item-name {
+    margin-bottom: 0px;
+    font-size: 14px;
+  }
+  .quantity-container {
+    margin-bottom: 0px;
+  }
+  .price {
+    margin-top: 2px;
+    font-size: 12px;
+  }
+  .delete-button {
+    margin-left: auto;
+  }
 }
