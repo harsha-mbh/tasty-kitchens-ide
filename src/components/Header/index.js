@@ -3,6 +3,7 @@ import {withRouter, Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {AiFillCloseCircle} from 'react-icons/ai'
+import CartContext from '../../context/CartContext'
 import './index.css'
 
 class Header extends Component {
@@ -17,6 +18,15 @@ class Header extends Component {
     Cookies.remove('jwt_token')
     history.replace('/login')
   }
+
+  getCartCount = () => (
+    <CartContext.Consumer>
+      {value => {
+        const {cartList} = value
+        return cartList.length === 0 ? null : cartList.length
+      }}
+    </CartContext.Consumer>
+  )
 
   render() {
     const {showMenu} = this.state
@@ -49,9 +59,10 @@ class Header extends Component {
                   Home
                 </Link>
               </li>
-              <li className="nav-menu-item">
-                <Link to="/cart" className="menu-link">
-                  Cart
+              <li className="nav-menu-item ">
+                <Link to="/cart" className="menu-link cart-count-container">
+                  <p>Cart</p>
+                  <span className="cart-count">{this.getCartCount()}</span>
                 </Link>
               </li>
               <li className="nav-menu-item">
@@ -92,8 +103,9 @@ class Header extends Component {
               </Link>
             </li>
             <li className="nav-menu-item">
-              <Link to="/cart" className="menu-link">
-                Cart
+              <Link to="/cart" className="menu-link cart-count-container">
+                <p>Cart</p>
+                <span className="cart-count">{this.getCartCount()}</span>
               </Link>
             </li>
             <button

@@ -7,16 +7,17 @@
 }
 
 .menu-image {
-  width: 160px;
+  width: 150px;
   height: 100px;
   margin-right: 8px;
+  border-radius: 8px;
 }
 @media screen and (min-width: 768px) {
   .menu-item {
-    width: 420px;
+    width: 450px;
   }
   .menu-image {
-    width: 255px;
+    width: 260px;
     height: 150px;
     border-radius: 8px;
   }
@@ -24,6 +25,7 @@
 .menu-details-container {
   display: flex;
   flex-direction: column;
+  max-width: 175px;
 }
 .name {
   font-family: 'Roboto';

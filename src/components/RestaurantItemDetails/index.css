@@ -1,15 +1,23 @@
-.menu-items-container {
+.food-items-container {
   display: flex;
   flex-direction: column;
   padding-left: 0px;
   list-style-type: none;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 12px;
 }
 
 @media screen and (min-width: 768px) {
-  .menu-items-container {
+  .food-items-container {
+    width: 90%;
+    max-width: 1100px;
     flex-direction: row;
+    justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
     margin: 0 auto;
+    margin-top: 20px;
+    padding-left: 0px;
   }
 }

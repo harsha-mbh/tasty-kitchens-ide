@@ -84,7 +84,7 @@ class RestaurantItemDetails extends Component {
     const {restaurantData} = this.state
     const {foodItems} = restaurantData
     return (
-      <ul className="menu-items-container">
+      <ul className="food-items-container">
         {foodItems.map(eachItem => (
           <MenuItem key={eachItem.id} menuDetails={eachItem} />
         ))}

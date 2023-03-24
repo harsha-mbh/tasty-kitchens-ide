@@ -25,13 +25,17 @@
   width: 90%;
   padding-left: 0px;
   margin-top: 25px;
+  margin-bottom: 20px;
 }
 @media screen and (min-width: 768px) {
   .restaurants-list-container {
+    width: 90%;
     max-width: 1110px;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
   }
 }
 .restaurants-loader-container {

@@ -15,24 +15,28 @@ const RestaurantItemPoster = props => {
   } = restaurantData
   return (
     <div className="poster-container">
-      <div className="content-container">
-        <img src={imageUrl} alt="restaurant" className="restaurant-image" />
-        <div className="restaurant-details-container">
-          <h1 className="restaurant-name">{name}</h1>
-          <p className="restaurant-details">{cuisine}</p>
+      <div className="restaurant-poster-content-container">
+        <img
+          src={imageUrl}
+          alt="restaurant"
+          className="restaurant-poster-image"
+        />
+        <div className="restaurant-poster-details-container">
+          <h1 className="restaurant-poster-name">{name}</h1>
+          <p className="restaurant-poster-details">{cuisine}</p>
           <p className="location">{location}</p>
           <div className="rating-cost-container">
             <div className="details-container">
               <div className="flex-container">
                 <AiFillStar color="#ffffff" />
-                <p className="restaurant-details">{rating}</p>
+                <p className="restaurant-poster-details">{rating}</p>
               </div>
               <p className="mini-details">{`${reviewsCount} Ratings`}</p>
             </div>
             <div className="details-container">
               <div className="flex-container">
                 <BiRupee color="#ffffff" />
-                <p className="restaurant-details">{costForTwo}</p>
+                <p className="restaurant-poster-details">{costForTwo}</p>
               </div>
               <p className="mini-details">Cost for two</p>
             </div>

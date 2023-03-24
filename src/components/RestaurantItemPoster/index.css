@@ -12,18 +12,18 @@
     align-items: center;
   }
 }
-.content-container {
+.restaurant-poster-content-container {
   display: flex;
   align-items: center;
   margin: 0px;
   width: 100%;
   padding: 20px 8px;
 }
-.restaurant-image {
+.restaurant-poster-image {
   width: 221px;
 }
 @media screen and (min-width: 768px) {
-  .restaurant-image {
+  .restaurant-poster-image {
     min-width: 350px;
     min-height: 240px;
     margin-left: 200px;
@@ -32,13 +32,13 @@
   }
 }
 @media screen and (min-width: 768px) {
-  .content-container {
+  .restaurant-poster-content-container {
     flex-grow: 1;
     max-width: 800px;
     align-items: center;
   }
 }
-.restaurant-details-container {
+.restaurant-poster-details-container {
   margin-top: 12px;
   display: flex;
   flex-direction: column;
@@ -46,12 +46,12 @@
   flex-grow: 1;
 }
 @media screen and (min-width: 768px) {
-  .restaurant-details-container {
+  .restaurant-poster-details-container {
     min-width: 300px;
     flex-grow: 1;
   }
 }
-.restaurant-name {
+.restaurant-poster-name {
   font-family: 'Roboto';
   font-size: 16px;
   font-weight: 500;
@@ -59,17 +59,17 @@
   margin-bottom: 0px;
 }
 
-.restaurant-details {
+.restaurant-poster-details {
   font-family: 'Roboto';
   font-size: 12px;
   font-weight: 400;
   color: #ffffff;
 }
 @media screen and (min-width: 768px) {
-  .restaurant-name {
+  .restaurant-poster-name {
     font-size: 36px;
   }
-  .restaurant-details {
+  .restaurant-poster-details {
     font-size: 16px;
   }
 }

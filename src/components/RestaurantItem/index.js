@@ -9,8 +9,12 @@ const RestaurantItem = props => {
   return (
     <Link to={`/restaurant/${id}`} className="restaurant-link">
       <li className="restaurant-item">
-        <img src={imageUrl} alt="restaurant" className="restaurant-image" />
-        <div className="restaurant-details">
+        <img
+          src={imageUrl}
+          alt="restaurant"
+          className="restaurant-item-image"
+        />
+        <div className="restaurant-item-details">
           <h1 className="name">{name}</h1>
           <p className="cuisine">{cuisine}</p>
           <div className="ratings-container">
