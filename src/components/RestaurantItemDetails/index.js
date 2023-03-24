@@ -1,8 +1,10 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import RestaurantItemPoster from '../RestaurantItemPoster'
 import MenuItem from '../MenuItem'
+import Footer from '../Footer'
 import './index.css'
 
 const apiStatusConstants = {
@@ -74,7 +76,7 @@ class RestaurantItemDetails extends Component {
       case 'SUCCESS':
         return this.renderPosterSuccessView()
       case 'LOADING':
-        return this.renderLoadingView
+        return this.renderRestaurantItemLoadingView()
       default:
         return null
     }
@@ -92,13 +94,19 @@ class RestaurantItemDetails extends Component {
     )
   }
 
+  renderRestaurantItemLoadingView = () => (
+    <div className="restaurant-item-loader-container">
+      <Loader type="TailSpin" color="#FFCC00" height={50} width={50} />
+    </div>
+  )
+
   renderFoodItems = () => {
     const {apiStatus} = this.state
     switch (apiStatus) {
       case 'SUCCESS':
         return this.renderFoodItemsSuccessView()
       case 'LOADING':
-        return this.renderLoadingView
+        return this.renderRestaurantItemLoadingView()
       default:
         return null
     }
@@ -110,6 +118,7 @@ class RestaurantItemDetails extends Component {
         <Header />
         {this.renderRestaurantDetails()}
         {this.renderFoodItems()}
+        <Footer />
       </>
     )
   }

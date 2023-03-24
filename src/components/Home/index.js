@@ -6,6 +6,7 @@ import Footer from '../Footer'
 import RestaurantItem from '../RestaurantItem'
 import FiltersGroup from '../FiltersGroup'
 import Carousal from '../Carousal'
+import Pagination from '../Pagination'
 import './index.css'
 
 const sortByOptions = [
@@ -35,6 +36,8 @@ class Home extends Component {
     carousalDetails: [],
     popularApiStatus: apiStatusConstants.initial,
     carousalApiStatus: apiStatusConstants.initial,
+    totalPages: null,
+    currentPage: 1,
   }
 
   componentDidMount() {
@@ -42,14 +45,36 @@ class Home extends Component {
     this.getCarousalItems()
   }
 
+  onClickPrevPage = () => {
+    const {currentPage} = this.state
+    if (currentPage > 1) {
+      this.setState(
+        prevState => ({currentPage: prevState.currentPage - 1}),
+        this.getPopularRestaurants,
+      )
+    }
+  }
+
+  onClickNextPage = () => {
+    const {currentPage, totalPages} = this.state
+    if (currentPage < totalPages) {
+      this.setState(
+        prevState => ({currentPage: prevState.currentPage + 1}),
+        this.getPopularRestaurants,
+      )
+    }
+  }
+
   changeSortItemId = sortItemId =>
     this.setState({sortItemId}, this.getPopularRestaurants)
 
   getPopularRestaurants = async () => {
     this.setState({popularApiStatus: apiStatusConstants.loading})
-    const {sortItemId, popularRestaurants} = this.state
+    const {sortItemId, currentPage} = this.state
     const jwtToken = Cookies.get('jwt_token')
-    const apiUrl = `https://apis.ccbp.in/restaurants-list?offset=0&limit=9&sort_by_rating=${sortItemId}`
+    const apiUrl = `https://apis.ccbp.in/restaurants-list?offset=${
+      (currentPage - 1) * 9
+    }&limit=9&sort_by_rating=${sortItemId}`
     const options = {
       method: 'GET',
       headers: {
@@ -83,6 +108,7 @@ class Home extends Component {
       this.setState({
         popularRestaurants: formattedData,
         popularApiStatus: apiStatusConstants.success,
+        totalPages: Math.ceil(data.total / 9),
       })
     } else {
       this.setState({popularApiStatus: apiStatusConstants.failure})
@@ -154,13 +180,21 @@ class Home extends Component {
   }
 
   renderPopularRestaurantSuccessView = () => {
-    const {popularRestaurants} = this.state
+    const {popularRestaurants, currentPage, totalPages} = this.state
     return (
-      <ul className="restaurants-list-container">
-        {popularRestaurants.map(restaurant => (
-          <RestaurantItem key={restaurant.id} restaurantData={restaurant} />
-        ))}
-      </ul>
+      <>
+        <ul className="restaurants-list-container">
+          {popularRestaurants.map(restaurant => (
+            <RestaurantItem key={restaurant.id} restaurantData={restaurant} />
+          ))}
+        </ul>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onClickNextPage={this.onClickNextPage}
+          onClickPrevPage={this.onClickPrevPage}
+        />
+      </>
     )
   }
 

@@ -20,12 +20,10 @@ const MenuItem = props => (
       }
 
       const onDecrementQuantity = () => {
-        console.log('onDecrementQuantity called')
         decrementCartItemQuantity(id)
       }
 
       const onIncrementQuantity = () => {
-        console.log('onIncrementQuantity called')
         incrementCartItemQuantity(id)
       }
 

@@ -19,11 +19,19 @@ class Header extends Component {
     history.replace('/login')
   }
 
-  getCartCount = () => (
+  getCartItemsCount = () => (
     <CartContext.Consumer>
       {value => {
         const {cartList} = value
-        return cartList.length === 0 ? null : cartList.length
+        const cartItemsCount = cartList.length
+
+        return (
+          <>
+            {cartItemsCount > 0 ? (
+              <span className="cart-count">{cartList.length}</span>
+            ) : null}
+          </>
+        )
       }}
     </CartContext.Consumer>
   )
@@ -62,7 +70,7 @@ class Header extends Component {
               <li className="nav-menu-item ">
                 <Link to="/cart" className="menu-link cart-count-container">
                   <p>Cart</p>
-                  <span className="cart-count">{this.getCartCount()}</span>
+                  {this.getCartItemsCount}
                 </Link>
               </li>
               <li className="nav-menu-item">
@@ -105,7 +113,7 @@ class Header extends Component {
             <li className="nav-menu-item">
               <Link to="/cart" className="menu-link cart-count-container">
                 <p>Cart</p>
-                <span className="cart-count">{this.getCartCount()}</span>
+                {this.getCartItemsCount()}
               </Link>
             </li>
             <button

@@ -3,6 +3,7 @@
   width: 100%;
   display: flex;
   background-color: #333333;
+  overflow: hidden;
 }
 @media screen and (min-width: 768px) {
   .poster-container {
@@ -19,9 +20,18 @@
   width: 100%;
   padding: 20px 8px;
 }
-.restaurant-poster-image {
-  width: 221px;
+@media screen and (max-width: 767px) {
+  .restaurant-poster-image {
+    width: 221px;
+    height: 221px;
+    border-radius: 50%;
+    margin-top: -54px;
+    margin-left: -68px;
+    overflow: hidden;
+    margin-right: 12px;
+  }
 }
+
 @media screen and (min-width: 768px) {
   .restaurant-poster-image {
     min-width: 350px;
@@ -29,6 +39,7 @@
     margin-left: 200px;
     border-radius: 0px;
     flex-grow: 1;
+    margin-right: 15px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -49,6 +60,8 @@
   .restaurant-poster-details-container {
     min-width: 300px;
     flex-grow: 1;
+    justify-content: flex-start;
+    padding-top: 0px;
   }
 }
 .restaurant-poster-name {
@@ -92,11 +105,18 @@
   display: flex;
   align-items: center;
   margin-top: 0px;
+  justify-content: space-between;
 }
 .details-container {
   display: flex;
   flex-direction: column;
   margin-top: 0px;
+  margin-right: 8px;
+}
+@media screen and (min-width: 768px) {
+  .details-container {
+    margin-right: 8px;
+  }
 }
 .flex-container {
   display: flex;
