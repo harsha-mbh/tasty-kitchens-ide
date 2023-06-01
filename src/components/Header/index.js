@@ -70,7 +70,7 @@ class Header extends Component {
               <li className="nav-menu-item ">
                 <Link to="/cart" className="menu-link cart-count-container">
                   <p>Cart</p>
-                  {this.getCartItemsCount}
+                  {this.getCartItemsCount()}
                 </Link>
               </li>
               <li className="nav-menu-item">
