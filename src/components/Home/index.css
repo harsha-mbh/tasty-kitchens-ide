@@ -1,3 +1,9 @@
+.content-container {
+  width: 100%;
+  position: absolute;
+  top: 65px;
+  margin: auto;
+}
 .carousal-container {
   display: flex;
   align-items: center;
@@ -13,6 +19,9 @@
   height: 150px;
 }
 @media screen and (min-width: 768px) {
+  .content-container {
+    top: 100px;
+  }
   .carousal-container {
     width: 90%;
     max-width: 1110px;

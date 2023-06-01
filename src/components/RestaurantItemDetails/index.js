@@ -116,9 +116,11 @@ class RestaurantItemDetails extends Component {
     return (
       <>
         <Header />
-        {this.renderRestaurantDetails()}
-        {this.renderFoodItems()}
-        <Footer />
+        <div className="content-container">
+          {this.renderRestaurantDetails()}
+          {this.renderFoodItems()}
+          <Footer />
+        </div>
       </>
     )
   }

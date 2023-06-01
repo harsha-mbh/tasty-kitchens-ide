@@ -220,10 +220,12 @@ class Home extends Component {
     return (
       <>
         <Header />
-        {this.renderCarousal()}
-        {this.renderFilterGroup()}
-        {this.renderPopularRestaurants()}
-        <Footer />
+        <div className="content-container">
+          {this.renderCarousal()}
+          {this.renderFilterGroup()}
+          {this.renderPopularRestaurants()}
+          <Footer />
+        </div>
       </>
     )
   }

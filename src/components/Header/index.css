@@ -4,13 +4,17 @@
   justify-content: center;
   align-items: center;
   background-color: #f8fafc;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
 }
 .nav-mobile-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 90%;
-  padding-top: 12px;
 }
 @media screen and (min-width: 768px) {
   .nav-mobile-content {
@@ -23,7 +27,6 @@
   justify-content: space-between;
   width: 90%;
   max-width: 1110px;
-  padding-top: 20px;
 }
 @media screen and (max-width: 767px) {
   .nav-desktop-content {
